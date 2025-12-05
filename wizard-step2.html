@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weblo - Wizard Step 2</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wizard-layout">
+        <div class="wizard-left">
+            <header class="wizard-header">
+                <div class="logo">Weblo.</div>
+            </header>
+
+            <div class="wizard-content-wrapper">
+                <div class="stepper-container">
+                    <div class="stepper-line"></div>
+                    <!-- Step 1 Indicator (Done) -->
+                    <div class="step-item">
+                        <div class="step-circle-small"></div>
+                    </div>
+                    <!-- Step 2 Indicator (Active) -->
+                    <div class="step-item active">
+                        <div class="step-circle">2</div>
+                    </div>
+                    <!-- Step 3 Indicator -->
+                    <div class="step-item">
+                        <div class="step-circle-small"></div>
+                    </div>
+                    <!-- Step 4 Indicator -->
+                    <div class="step-item">
+                        <div class="step-circle-small"></div>
+                    </div>
+                    <!-- Step 5 Indicator -->
+                    <div class="step-item">
+                        <div class="step-circle-small"></div>
+                    </div>
+                </div>
+
+                <div class="wizard-form-container">
+                    <div class="wizard-top-bar">
+                        <a href="wizard.html" class="go-back">← Go Back</a>
+                        <a href="index.html" class="btn btn-dark btn-sm exit-btn">Exit</a>
+                    </div>
+
+                    <h1 class="wizard-title">Customize Your Website</h1>
+                    <p class="step-subtitle">Pages to include<br><span class="step-desc">Select the pages you want on
+                            your website</span></p>
+
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="pages" value="Home" checked>
+                            <span class="checkmark"></span>
+                            Home
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="pages" value="About">
+                            <span class="checkmark"></span>
+                            About
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="pages" value="Services">
+                            <span class="checkmark"></span>
+                            Services
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="pages" value="Contact">
+                            <span class="checkmark"></span>
+                            Contact
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="pages" value="Gallery">
+                            <span class="checkmark"></span>
+                            Gallery
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="pages" value="Testimonials">
+                            <span class="checkmark"></span>
+                            Testimonials
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="pages" value="Pricing">
+                            <span class="checkmark"></span>
+                            Pricing
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="pages" value="FAQ">
+                            <span class="checkmark"></span>
+                            FAQ
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="pages" value="Blog">
+                            <span class="checkmark"></span>
+                            Blog (optional)
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="pages" value="Shop">
+                            <span class="checkmark"></span>
+                            Shop (optional)
+                        </label>
+                    </div>
+
+                    <div class="add-more-btn">+ Add More</div>
+
+                    <button type="button" class="btn btn-dark btn-block"
+                        onclick="saveAndNext(2, 'wizard-step3.html')">Next</button>
+                </div>
+            </div>
+        </div>
+        <div class="wizard-right">
+            <!-- Placeholder for right side content/image -->
+        </div>
+    </div>
+    <script src="wizard.js"></script>
+    <script>
+        initStep(2);
+    </script>
+</body>
+
+</html>

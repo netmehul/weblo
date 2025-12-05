@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weblo - Wizard Step 1</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wizard-layout">
+        <div class="wizard-left">
+            <header class="wizard-header">
+                <div class="logo">Weblo.</div>
+            </header>
+
+            <div class="wizard-content-wrapper">
+                <div class="stepper-container">
+                    <div class="stepper-line"></div>
+                    <!-- Step 1 Indicator -->
+                    <div class="step-item active">
+                        <div class="step-circle">1</div>
+                    </div>
+                    <!-- Step 2 Indicator -->
+                    <div class="step-item">
+                        <div class="step-circle-small"></div>
+                    </div>
+                    <!-- Step 3 Indicator -->
+                    <div class="step-item">
+                        <div class="step-circle-small"></div>
+                    </div>
+                    <!-- Step 4 Indicator -->
+                    <div class="step-item">
+                        <div class="step-circle-small"></div>
+                    </div>
+                    <!-- Step 5 Indicator -->
+                    <div class="step-item">
+                        <div class="step-circle-small"></div>
+                    </div>
+                </div>
+
+                <div class="wizard-form-container">
+                    <div class="wizard-top-bar">
+                        <a href="index.html" class="btn btn-dark btn-sm exit-btn">Exit</a>
+                    </div>
+
+                    <h1 class="wizard-title">Tell Us About Your Business</h1>
+
+                    <form class="wizard-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="businessName" placeholder="Business Name">
+                        </div>
+                        <div class="form-group">
+                            <div class="select-wrapper">
+                                <select class="form-control" id="industry">
+                                    <option value="" disabled selected>Industry</option>
+                                    <option value="Technology">Technology</option>
+                                    <option value="Retail">Retail</option>
+                                    <option value="Services">Services</option>
+                                    <option value="Healthcare">Healthcare</option>
+                                    <option value="Education">Education</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="description" rows="5"
+                                placeholder="Short Description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder="Business Email">
+                        </div>
+
+                        <button type="button" class="btn btn-dark btn-block"
+                            onclick="saveAndNext(1, 'wizard-step2.html')">Next</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="wizard-right">
+            <!-- Placeholder for right side content/image -->
+        </div>
+    </div>
+    <script src="wizard.js"></script>
+    <script>
+        // Initialize step data if returning
+        initStep(1);
+    </script>
+</body>
+
+</html>

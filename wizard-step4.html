@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weblo - Wizard Step 4</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wizard-layout">
+        <div class="wizard-left">
+            <header class="wizard-header">
+                <div class="logo">Weblo.</div>
+            </header>
+
+            <div class="wizard-content-wrapper">
+                <div class="stepper-container">
+                    <div class="stepper-line"></div>
+                    <!-- Step 1 Indicator (Done) -->
+                    <div class="step-item">
+                        <div class="step-circle-small"></div>
+                    </div>
+                    <!-- Step 2 Indicator (Done) -->
+                    <div class="step-item">
+                        <div class="step-circle-small"></div>
+                    </div>
+                    <!-- Step 3 Indicator (Done) -->
+                    <div class="step-item">
+                        <div class="step-circle-small"></div>
+                    </div>
+                    <!-- Step 4 Indicator (Active) -->
+                    <div class="step-item active">
+                        <div class="step-circle">4</div>
+                    </div>
+                    <!-- Step 5 Indicator -->
+                    <div class="step-item">
+                        <div class="step-circle-small"></div>
+                    </div>
+                </div>
+
+                <div class="wizard-form-container">
+                    <div class="wizard-top-bar">
+                        <a href="wizard-step3.html" class="go-back">← Go Back</a>
+                        <a href="index.html" class="btn btn-dark btn-sm exit-btn">Exit</a>
+                    </div>
+
+                    <h1 class="wizard-title">Features</h1>
+
+                    <div class="checkbox-list">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="features" value="Let AI Decide">
+                            <span class="checkmark"></span>
+                            Let AI Decide
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="features" value="Contact Form">
+                            <span class="checkmark"></span>
+                            Contact Form
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="features" value="Photo Gallery">
+                            <span class="checkmark"></span>
+                            Photo Gallery
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="features" value="Blog">
+                            <span class="checkmark"></span>
+                            Blog
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="features" value="Booking System">
+                            <span class="checkmark"></span>
+                            Booking/Appointment System
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="features" value="Testimonials">
+                            <span class="checkmark"></span>
+                            Testimonials Section
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="features" value="Ecommerce">
+                            <span class="checkmark"></span>
+                            E-commerce Basic Setup
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="features" value="AI Text">
+                            <span class="checkmark"></span>
+                            AI-Generated Text Content
+                        </label>
+                        <label class="checkbox-item disabled">
+                            <input type="checkbox" name="features" value="AI Images" disabled>
+                            <span class="checkmark"></span>
+                            <span style="color: #aaa;">AI-Generated Images <span class="badge">Coming Soon</span></span>
+                        </label>
+                    </div>
+
+                    <div class="add-more-btn">+ Add More</div>
+
+                    <button type="button" class="btn btn-dark btn-block"
+                        onclick="saveAndNext(4, 'wizard-step5.html')">Next</button>
+                </div>
+            </div>
+        </div>
+        <div class="wizard-right">
+            <!-- Placeholder for right side content/image -->
+        </div>
+    </div>
+    <script src="wizard.js"></script>
+    <script>
+        initStep(4);
+    </script>
+</body>
+
+</html>

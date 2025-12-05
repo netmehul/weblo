@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weblo - Wizard Step 3</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wizard-layout">
+        <div class="wizard-left">
+            <header class="wizard-header">
+                <div class="logo">Weblo.</div>
+            </header>
+
+            <div class="wizard-content-wrapper">
+                <div class="stepper-container">
+                    <div class="stepper-line"></div>
+                    <!-- Step 1 Indicator (Done) -->
+                    <div class="step-item">
+                        <div class="step-circle-small"></div>
+                    </div>
+                    <!-- Step 2 Indicator (Done) -->
+                    <div class="step-item">
+                        <div class="step-circle-small"></div>
+                    </div>
+                    <!-- Step 3 Indicator (Active) -->
+                    <div class="step-item active">
+                        <div class="step-circle">3</div>
+                    </div>
+                    <!-- Step 4 Indicator -->
+                    <div class="step-item">
+                        <div class="step-circle-small"></div>
+                    </div>
+                    <!-- Step 5 Indicator -->
+                    <div class="step-item">
+                        <div class="step-circle-small"></div>
+                    </div>
+                </div>
+
+                <div class="wizard-form-container">
+                    <div class="wizard-top-bar">
+                        <a href="wizard-step2.html" class="go-back">← Go Back</a>
+                        <a href="index.html" class="btn btn-dark btn-sm exit-btn">Exit</a>
+                    </div>
+
+                    <h1 class="wizard-title">Design Style</h1>
+
+                    <button class="btn btn-light btn-block mb-4">Let AI Decide</button>
+
+                    <div class="style-grid">
+                        <div class="style-card selected">
+                            <div class="style-preview"></div>
+                            <div class="style-name">Modern</div>
+                        </div>
+                        <div class="style-card">
+                            <div class="style-preview"></div>
+                            <div class="style-name">Minimal</div>
+                        </div>
+                        <div class="style-card">
+                            <div class="style-preview"></div>
+                            <div class="style-name">Professional</div>
+                        </div>
+                        <div class="style-card">
+                            <div class="style-preview"></div>
+                            <div class="style-name">Corporate</div>
+                        </div>
+                        <div class="style-card">
+                            <div class="style-preview"></div>
+                            <div class="style-name">Colourful</div>
+                        </div>
+                        <div class="style-card">
+                            <div class="style-preview"></div>
+                            <div class="style-name">Monochrome</div>
+                        </div>
+                        <div class="style-card">
+                            <div class="style-preview"></div>
+                            <div class="style-name">Playful</div>
+                        </div>
+                        <div class="style-card">
+                            <div class="style-preview"></div>
+                            <div class="style-name">Elegant</div>
+                        </div>
+                    </div>
+
+                    <div class="style-actions">
+                        <button class="btn btn-light style-action-btn">Let AI Decide</button>
+                        <button class="btn btn-light style-action-btn">Dark</button>
+                        <button class="btn btn-light style-action-btn">Light</button>
+                    </div>
+
+                    <button type="button" class="btn btn-dark btn-block"
+                        onclick="saveAndNext(3, 'wizard-step4.html')">Next</button>
+                </div>
+            </div>
+        </div>
+        <div class="wizard-right">
+            <!-- Placeholder for right side content/image -->
+        </div>
+    </div>
+    <script src="wizard.js"></script>
+    <script>
+        initStep(3);
+    </script>
+</body>
+
+</html>
