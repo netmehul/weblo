@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weblo - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Dashboard Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo"><img src="Assets/img/logo.svg" alt="Logo"></a>
+
+            <div class="header-nav">
+                <ul class="header-nav-list">
+                    <li class="header-nav-item"><a href="#" class="header-nav-link">Solutions</a></li>
+                    <li class="header-nav-item"><a href="#" class="header-nav-link">Library</a></li>
+                    <li class="header-nav-item"><a href="#" class="header-nav-link">Pricing</a></li>
+                    <li class="header-nav-item"><a href="#" class="header-nav-link">Help Center</a></li>
+                </ul>
+            </div>
+
+            <div class="dashboard-header-right">
+                <div class="user-avatar">AB</div>
+            </div>
+    </header>
+
+    <div class="container dashboard-container">
+        <!-- Toolbar -->
+        <div class="dashboard-toolbar">
+            <h1 class="dashboard-welcome">Hello, Alex</h1>
+            <div class="dashboard-actions">
+                <div class="search-wrapper">
+                    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" class="search-input" placeholder="Search">
+                </div>
+                <a href="wizard.html" class="btn btn-dark btn-sm">Create New Site</a>
+            </div>
+        </div>
+
+        <div class="dashboard-grid" id="websiteGrid">
+            <!-- Example: Completed Site -->
+            <div class="project-card">
+                <div class="project-preview"></div>
+                <div class="project-info">
+                    <div class="project-title">SweetCrust</div>
+                    <div class="project-meta">
+                        <span>Completed</span>
+                        <span>09-12-2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example: Error Site -->
+            <div class="project-card">
+                <div class="project-preview"></div>
+                <div class="project-info">
+                    <div class="project-title">Rockify</div>
+                    <div class="project-meta">
+                        <span>Error</span>
+                        <span>09-12-2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example: In Progress Site -->
+            <div class="project-card">
+                <div class="project-preview"></div>
+                <div class="project-info">
+                    <div class="project-title">Fast Food Restaurant</div>
+                    <div class="project-meta">
+                        <span>In Progress</span>
+                        <span>09-12-2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="wizard.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const data = loadData();
+            // Check if we just built something that isn't already hardcoded
+            if (data.businessName || data.plan) {
+                // Logic to append strictly new sites could go here, 
+                // but for now we rely on the hardcoded examples to match the screenshot.
+                // If a user just finished the wizard, we might want to inject it.
+            }
+        });
+    </script>
+</body>
+
+</html>

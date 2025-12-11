@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weblo - Chat</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="canvas.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo"><img src="Assets/img/logo.svg" alt="Logo"></a>
+            <a href="#" class="btn btn-dark btn-sm">Sign In</a>
+        </div>
+    </header>
+
+    <div class="chat-layout">
+
+        <div class="chat-panel-left">
+            <div class="chat-history">
+                <div class="chat-message-user">
+                    Create a website for my bakery called SweetCrust. We sell fresh pastries and custom cakes. Our
+                    customers are local families and office workers. Make the tone warm and friendly, and focus on
+                    helping customers place custom cake orders easily.
+                </div>
+                <div class="chat-message-system" style="margin-top: 24px; animation: fadeIn 0.5s ease-out;">
+                    <div class="plans-list">
+
+                        <!-- System Analysis (Checked) -->
+                        <div class="plan-item-single accepted" style="margin-bottom: 16px;">
+                            <div class="plan-header-single">
+                                <div class="plan-header-title">What the System Understands & Extracts</div>
+                            </div>
+                        </div>
+
+                        <!-- Single Accordion Item -->
+                        <div class="plan-item-single selected">
+                            <div class="plan-header-single">
+                                <div class="plan-header-title">Implementation Plan</div>
+                            </div>
+                            <div class="plan-details-single">
+
+                                <div class="plan-group" id="static-step-1">
+                                    <div class="plan-group-status"></div>
+                                    <div class="plan-group-title">Brand Setup</div>
+                                    <div class="plan-group-text">Apply SweetCrust name, warm tone, pastel colour theme
+                                    </div>
+                                    <div class="plan-group-text">Use soft rounded font pairing</div>
+                                </div>
+
+                                <div class="plan-group" id="static-step-2">
+                                    <div class="plan-group-status"></div>
+                                    <div class="plan-group-title">Homepage</div>
+                                    <div class="plan-group-text">Hero message: “Freshly baked happiness, made just for
+                                        you.”</div>
+                                    <div class="plan-group-text">Highlight pastries + primary CTA for custom cake orders
+                                    </div>
+                                </div>
+
+                                <div class="plan-group" id="static-step-3">
+                                    <div class="plan-group-status"></div>
+                                    <div class="plan-group-title">Menu Page</div>
+                                    <div class="plan-group-text">Showcase pastries in simple categories</div>
+                                    <div class="plan-group-text">Add a “Most Loved” section for families & office
+                                        workers</div>
+                                </div>
+
+                                <div class="plan-group" id="static-step-4">
+                                    <div class="plan-group-status"></div>
+                                    <div class="plan-group-title">Custom Cake Order Page</div>
+                                    <div class="plan-group-text">Guided form (size → flavour → decoration → notes)</div>
+                                    <div class="plan-group-text">Quick price estimate + preview card</div>
+                                    <div class="plan-group-text">Pickup/delivery options</div>
+                                </div>
+
+                                <div class="plan-group" id="static-step-5">
+                                    <div class="plan-group-status"></div>
+                                    <div class="plan-group-title">Contact Page</div>
+                                    <div class="plan-group-text">Location, timings, quick-call button</div>
+                                    <div class="plan-group-text">Optional Google Maps embed</div>
+                                </div>
+
+                                <div class="plan-group" id="static-step-6">
+                                    <div class="plan-group-status"></div>
+                                    <div class="plan-group-title">Theme & Tone</div>
+                                    <div class="plan-group-text">Friendly microcopy across all pages</div>
+                                    <div class="plan-group-text">Warm visuals, pastel colours, cozy bakery mood</div>
+                                    <!-- Palette -->
+                                    <div class="plan-group-text palette-container">
+                                        <div class="palette-header">
+                                            <div class="palette-title">Palette 1</div>
+                                            <div class="palette-refresh">↻</div>
+                                        </div>
+                                        <div class="palette-swatches">
+                                            <div class="swatch" style="background-color: #9E9E9E;"></div>
+                                            <!-- Dark Gray -->
+                                            <div class="swatch" style="background-color: #757575;"></div>
+                                            <!-- Darker Gray -->
+                                            <div class="swatch" style="background-color: #D6D6D6;"></div>
+                                            <!-- Light Gray -->
+                                            <div class="swatch" style="background-color: #E0E0E0;"></div>
+                                            <!-- Lighter Gray -->
+                                            <div class="swatch" style="background-color: #EEEEEE;"></div>
+                                            <!-- Very Light Gray -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Select Plan Accordion (Initially Hidden) -->
+                        <div class="plan-item-single" id="plan-selection-accordion"
+                            style="display: none; margin-top: 16px;">
+                            <div class="plan-header-single">
+                                <div class="plan-header-title">Select a Plan</div>
+                            </div>
+                            <div class="plan-details-single">
+                                <div style="padding: 16px;">
+                                    <!-- Simple Plan Selection derived from wizard -->
+                                    <div class="plans-list-chat"
+                                        style="display: flex; flex-direction: column; gap: 12px;">
+
+                                        <!-- Starter Plan -->
+                                        <div class="plan-card selected" id="plan-starter"
+                                            style="border: 2px solid #222; border-radius: 8px; padding: 12px; cursor: pointer; background: #fff;">
+                                            <div
+                                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                                <div style="font-weight: 700; font-size: 15px;">Starter</div>
+                                                <div style="font-weight: 700;">$149</div>
+                                            </div>
+                                            <div style="font-size: 13px; color: #555; line-height: 1.4;">One-time build,
+                                                5 pages, hosting included.</div>
+                                        </div>
+
+                                        <!-- Business Plan -->
+                                        <div class="plan-card" id="plan-business"
+                                            style="border: 1px solid #ddd; border-radius: 8px; padding: 12px; cursor: pointer; background: #fff;">
+                                            <div
+                                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                                <div style="font-weight: 700; font-size: 15px;">Business</div>
+                                                <div style="font-weight: 700;">$39<span
+                                                        style="font-size: 11px; font-weight: 400; color: #777;">/mo</span>
+                                                </div>
+                                            </div>
+                                            <div style="font-size: 13px; color: #555; line-height: 1.4;">5 sites, source
+                                                code export, priority support.</div>
+                                        </div>
+
+                                    </div>
+                                    <div style="margin-top: 16px;">
+                                        <button class="btn btn-dark btn-block" id="btn-confirm-plan"
+                                            style="width: 100%;">Continue to Payment</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Accordion (Initially Hidden) -->
+                        <div class="plan-item-single" id="payment-accordion" style="display: none; margin-top: 16px;">
+                            <div class="plan-header-single" id="payment-header">
+                                <div class="plan-header-title">Payment Details</div>
+                            </div>
+                            <!-- Force expanded by default when shown? or managed by JS -->
+                            <div class="plan-details-single" id="payment-details">
+                                <div style="padding: 24px;">
+                                    <div class="form-group">
+                                        <label
+                                            style="display: block; margin-bottom: 8px; font-size: 14px; font-weight: 500;">Email
+                                            Address</label>
+                                        <input type="email" class="form-control" id="chatPayEmail"
+                                            placeholder="you@example.com"
+                                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                                    </div>
+
+                                    <div class="form-group" style="margin-top: 16px;">
+                                        <label
+                                            style="display: block; margin-bottom: 8px; font-size: 14px; font-weight: 500;">Card
+                                            Details</label>
+                                        <div
+                                            style="border: 1px solid #ddd; border-radius: 6px; padding: 10px; display: flex; align-items: center; gap: 8px; background: #fff;">
+                                            <span style="font-size: 20px;">💳</span>
+                                            <input type="text" placeholder="Card number"
+                                                style="border: none; outline: none; flex: 1; font-size: 14px;">
+                                            <input type="text" placeholder="MM/YY"
+                                                style="border: none; outline: none; width: 50px; font-size: 14px;">
+                                            <input type="text" placeholder="CVC"
+                                                style="border: none; outline: none; width: 40px; font-size: 14px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" style="margin-top: 16px;">
+                                        <label
+                                            style="display: block; margin-bottom: 8px; font-size: 14px; font-weight: 500;">Cardholder
+                                            Name</label>
+                                        <input type="text" class="form-control" placeholder="Name on card"
+                                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                                    </div>
+
+                                    <div
+                                        style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                        <div>
+                                            <div style="font-size: 14px; font-weight: 600;">Starter Plan</div>
+                                            <div style="font-size: 12px; color: #666;">Billed once</div>
+                                        </div>
+                                        <div style="font-size: 16px; font-weight: 600;">$199.00</div>
+                                    </div>
+
+                                    <button class="btn btn-dark btn-block" id="btn-pay-build" style="width: 100%;">Pay &
+                                        Build Website</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Progress Accordion (Initially Hidden) -->
+                        <div class="plan-item-single" id="progress-accordion" style="display: none;">
+                            <div class="plan-header-single">
+                                <div class="plan-header-title">Progress</div>
+                            </div>
+                            <div class="plan-details-single">
+                                <div style="padding: 16px; padding-top: 24px;">
+                                    <div class="plan-group" id="plan-step-1">
+                                        <div class="plan-group-status"></div>
+                                        <div class="plan-group-title">Brand Setup</div>
+                                        <div class="plan-group-text">Configuring brand assets...</div>
+                                    </div>
+                                    <div class="plan-group" id="plan-step-2">
+                                        <div class="plan-group-status"></div>
+                                        <div class="plan-group-title">Homepage</div>
+                                        <div class="plan-group-text">Building hero & layout...</div>
+                                    </div>
+                                    <div class="plan-group" id="plan-step-3">
+                                        <div class="plan-group-status"></div>
+                                        <div class="plan-group-title">Menu Page</div>
+                                        <div class="plan-group-text">Setting up product grid...</div>
+                                    </div>
+                                    <div class="plan-group" id="plan-step-4">
+                                        <div class="plan-group-status"></div>
+                                        <div class="plan-group-title">Custom Cake Order Page</div>
+                                        <div class="plan-group-text">Generating forms...</div>
+                                    </div>
+                                    <div class="plan-group" id="plan-step-5">
+                                        <div class="plan-group-status"></div>
+                                        <div class="plan-group-title">Contact Page</div>
+                                        <div class="plan-group-text">Adding location data...</div>
+                                    </div>
+                                    <div class="plan-group" id="plan-step-6">
+                                        <div class="plan-group-status"></div>
+                                        <div class="plan-group-title">Theme & Tone</div>
+                                        <div class="plan-group-text">Applying styles...</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Success Message (Hidden by default) -->
+                    <div class="chat-message-system" id="success-message"
+                        style="margin-top: 24px; animation: fadeIn 0.5s ease-out; display: none;">
+                        <div style="font-size: 16px; font-weight: 600; color: #333; margin-bottom: 8px;">🎉 Your Website
+                            Is Ready, SweetCrust!</div>
+                        <div style="font-size: 14px; color: #444; line-height: 1.5; margin-bottom: 12px;">
+                            Weblo AI has clarified your brand, filled details, optimized structure, and built a friendly
+                            bakery website for families and office workers.
+                            <br><br>
+                            SweetCrust now has a complete, user-friendly online presence that helps customers explore
+                            pastries and place custom cake orders effortlessly.
+                            <br><br>
+                            Want to refine anything? Just tell me what you’d like to adjust next
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="chat-confirm-wrapper" id="confirm-wrapper">
+                <div class="confirm-text">Do you like it?</div>
+                <div class="confirm-actions">
+                    <button class="btn btn-dark" id="btn-confirm">Confirm</button>
+                    <button class="btn btn-light-gray" id="btn-doubts">Have doubts</button>
+                </div>
+            </div>
+
+            <div class="chat-input-wrapper" id="input-wrapper" style="display: none;">
+                <textarea class="chat-input" placeholder="Describe your website"></textarea>
+                <div class="chat-input-actions">
+                    <button class="btn-icon" title="Attach">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <button class="btn-icon btn-send" title="Send">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <polygon points="22 2 15 22 11 13 2 9 22 2" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="chat-panel-right">
+            <!-- Visual Simulation Canvas -->
+            <div class="canvas-container" id="simulation-canvas">
+                <div class="canvas-header">
+                    <div class="canvas-header-button-group">
+                        <div class="browser-code-view">
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#333" stroke-width="1" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="icon icon-tabler icons-tabler-outline icon-tabler-code">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M7 8l-4 4l4 4" />
+                                    <path d="M17 8l4 4l-4 4" />
+                                    <path d="M14 4l-4 16" />
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="browser-code-view">
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" />
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="browser-bar">../</div>
+
+                        <div class="browser-code-view">
+                            <a href="#">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M8.25 6H3.75C2.92157 6 2.25 6.67157 2.25 7.5V15C2.25 15.8284 2.92157 16.5 3.75 16.5H8.25C9.07843 16.5 9.75 15.8284 9.75 15V7.5C9.75 6.67157 9.07843 6 8.25 6Z"
+                                        stroke="#252525" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M3.75 3C3.75 2.60218 3.90804 2.22064 4.18934 1.93934C4.47064 1.65804 4.85218 1.5 5.25 1.5H14.25C14.6478 1.5 15.0294 1.65804 15.3107 1.93934C15.592 2.22064 15.75 2.60218 15.75 3V15C15.75 15.3978 15.592 15.7794 15.3107 16.0607C15.0294 16.342 14.6478 16.5 14.25 16.5H12.45"
+                                        stroke="#252525" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M6 13.5H6.0075" stroke="#252525" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="#" class="btn-text btn-prompt-builder">Save Code</a>
+                    </div>
+                </div>
+                <div class="canvas-body">
+                    <!-- Nav -->
+                    <div class="sk-el sk-nav" id="sk-nav">
+                        <div class="sk-logo"></div>
+                        <div class="sk-links">
+                            <div class="sk-link"></div>
+                            <div class="sk-link"></div>
+                            <div class="sk-link"></div>
+                        </div>
+                    </div>
+
+                    <!-- Hero -->
+                    <div class="sk-el sk-hero" id="sk-hero">
+                        <div class="sk-hero-title"></div>
+                        <div class="sk-hero-sub"></div>
+                    </div>
+
+                    <!-- Grid -->
+                    <div class="sk-el sk-grid" id="sk-grid">
+                        <div class="sk-card"></div>
+                        <div class="sk-card"></div>
+                        <div class="sk-card"></div>
+                    </div>
+
+                    <!-- Form -->
+                    <div class="sk-el sk-form" id="sk-form">
+                        <div class="sk-input"></div>
+                        <div class="sk-input"></div>
+                        <div class="sk-input"></div>
+                        <div class="sk-button"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const prompt = localStorage.getItem('weblo_prompt');
+            if (prompt) {
+                const userMessage = document.querySelector('.chat-message-user');
+                if (userMessage) {
+                    userMessage.textContent = prompt;
+                }
+                localStorage.removeItem('weblo_prompt');
+            }
+
+            // Accordion Logic
+            // Accordion Logic
+            const planHeader = document.querySelector('.plan-header-single');
+            if (planHeader) {
+                planHeader.addEventListener('click', () => {
+                    planHeader.parentElement.classList.toggle('selected');
+                });
+            }
+
+            // Have Doubts Interaction
+            const btnDoubts = document.getElementById('btn-doubts');
+            const confirmWrapper = document.getElementById('confirm-wrapper');
+            const inputWrapper = document.getElementById('input-wrapper');
+            const btnConfirm = document.getElementById('btn-confirm');
+
+            if (btnDoubts && confirmWrapper && inputWrapper) {
+                btnDoubts.addEventListener('click', () => {
+                    confirmWrapper.style.display = 'none';
+                    inputWrapper.style.display = 'block';
+                });
+            }
+
+            // Execution Simulation
+            // Execution Simulation
+            // Execution Simulation
+            // Flow: Implementation Plan -> Plan Selection -> Redirect Payment -> Build (Progress)
+            const planSelectionAccordion = document.getElementById('plan-selection-accordion');
+            const btnConfirmPlan = document.getElementById('btn-confirm-plan');
+            const progressAccordion = document.getElementById('progress-accordion');
+            const successMsg = document.getElementById('success-message');
+
+            // 1. Confirm Implementation Plan -> Show Select Plan
+            if (btnConfirm) {
+                btnConfirm.addEventListener('click', () => {
+                    confirmWrapper.style.display = 'none';
+                    markimplPlanAccepted();
+                    if (planSelectionAccordion) {
+                        planSelectionAccordion.style.display = 'block';
+                        setTimeout(() => planSelectionAccordion.classList.add('selected'), 50);
+                    }
+                });
+            }
+
+            // Plan Card Selection
+            const planCards = document.querySelectorAll('.plan-card');
+            planCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    planCards.forEach(c => {
+                        c.classList.remove('selected');
+                        c.style.border = '1px solid #ddd';
+                    });
+                    card.classList.add('selected');
+                    card.style.border = '2px solid #222';
+                });
+            });
+
+            // 2. Confirm Plan Selection -> Redirect to Payment
+            if (btnConfirmPlan) {
+                btnConfirmPlan.addEventListener('click', () => {
+                    // Get selected plan
+                    const selectedPlan = document.querySelector('.plan-card.selected');
+                    let planType = 'Starter';
+                    if (selectedPlan && selectedPlan.id === 'plan-business') {
+                        planType = 'Business';
+                    }
+                    // Redirect to payment
+                    window.location.href = `payment.html?plan=${planType}`;
+                });
+            }
+
+            // Helper to mark Implementation Plan as Accepted
+            function markimplPlanAccepted() {
+                const planItem = document.querySelector('.plan-item-single.selected') ||
+                    document.querySelectorAll('.plan-item-single')[1]; // Fallback to 2nd item (Implementation Plan)
+                if (planItem) {
+                    planItem.classList.remove('selected');
+                    planItem.classList.add('accepted');
+                    const headerTitle = planItem.querySelector('.plan-header-title');
+                    if (headerTitle) headerTitle.innerText = "Implementation plan accepted";
+                }
+            }
+
+            // Check for Payment Success on Load
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('status') === 'paid') {
+                // Restore State
+                const userMessage = document.querySelector('.chat-message-user');
+                if (userMessage) {
+                    // Optional: Restore prompt if needed, or keep generic
+                }
+
+                // Hide confirmation wrapper
+                if (confirmWrapper) confirmWrapper.style.display = 'none';
+
+                // Mark Impl Plan Accepted
+                markimplPlanAccepted();
+
+                // Show Plan Selection (Accepted) - effectively hidden from view logic but strictly structured
+                // Requirement: "show Plans first then ask for payment page" ... "after payment... progress accordion"
+                // If we follow the "End Screen" logic, we might want to hide Plan Selection or show it accepted.
+                // Assuming we just show "Payment Completed" and "Progress".
+
+                // Add "Payment Completed" Accordion dynamically since we don't need the form anymore
+                const plansList = document.querySelector('.plans-list');
+                const paymentCompletedItem = document.createElement('div');
+                paymentCompletedItem.className = 'plan-item-single accepted';
+                paymentCompletedItem.style.marginBottom = '16px';
+                paymentCompletedItem.innerHTML = `
+                    <div class="plan-header-single">
+                        <div class="plan-header-title">Payment Completed</div>
+                    </div>
+                `;
+                // Insert before Progress Accordion or append
+                if (progressAccordion) {
+                    plansList.insertBefore(paymentCompletedItem, progressAccordion);
+                }
+
+                // Start Progress Simulation
+                startBuildSimulation();
+            }
+
+            async function startBuildSimulation() {
+                if (progressAccordion) {
+                    progressAccordion.style.display = 'block';
+                    setTimeout(() => progressAccordion.classList.add('selected'), 50);
+                }
+
+                // Show Canvas
+                const canvas = document.getElementById('simulation-canvas');
+                if (canvas) canvas.classList.add('visible');
+
+                const steps = [1, 2, 3, 4, 5, 6];
+
+                for (const stepId of steps) {
+                    const stepEl = document.getElementById(`plan-step-${stepId}`);
+                    if (!stepEl) continue;
+
+                    const statusEl = stepEl.querySelector('.plan-group-status');
+
+                    stepEl.classList.add('loading');
+                    statusEl.innerHTML = '<div class="spinner"></div>';
+
+                    // Visual Updates on Right Panel
+                    if (stepId === 1) { // Brand Setup
+                        document.getElementById('sk-nav').classList.add('visible');
+                    }
+                    if (stepId === 2) { // Homepage
+                        document.getElementById('sk-hero').classList.add('visible');
+                    }
+                    if (stepId === 3) { // Menu Page
+                        document.getElementById('sk-grid').classList.add('visible');
+                    }
+                    if (stepId === 4) { // Order Page
+                        document.getElementById('sk-form').classList.add('visible');
+                    }
+                    if (stepId === 6) { // Theme
+                        canvas.classList.add('theme-applied');
+                    }
+
+                    await new Promise(r => setTimeout(r, 1500));
+
+                    stepEl.classList.remove('loading');
+                    stepEl.classList.add('completed');
+                    statusEl.innerHTML = '<span class="checkmark-icon">✓</span>';
+
+                    const textItems = stepEl.querySelectorAll('.plan-group-text');
+                    textItems.forEach(el => el.style.display = 'none');
+                }
+
+                // Mark Progress Accepted
+                if (progressAccordion) {
+                    progressAccordion.classList.remove('selected');
+                    progressAccordion.classList.add('accepted');
+                }
+
+                // Show Success
+                if (successMsg) {
+                    successMsg.style.display = 'block';
+                    if (inputWrapper) inputWrapper.style.display = 'block';
+                    const chatHistory = document.querySelector('.chat-history');
+                    if (chatHistory) chatHistory.scrollTop = chatHistory.scrollHeight;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -16,7 +16,7 @@
         <!-- Left Side: Payment Form -->
         <div class="wizard-left">
             <header class="wizard-header">
-                <div class="logo">Weblo.</div>
+                <a href="index.html" class="logo">Weblo.</a>
                 <div
                     style="font-size: 13px; color: #666; margin-top: 4px; display: flex; align-items: center; gap: 6px;">
                     <span>🔒 Secure Checkout</span>
@@ -132,7 +132,8 @@
             btn.disabled = true;
 
             setTimeout(() => {
-                window.location.href = 'dashboard-build.html';
+                // Redirect back to chat with paid status
+                window.location.href = 'chat-1.html?status=paid';
             }, 2000);
         }
     </script>
